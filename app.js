@@ -1,17 +1,17 @@
 'use strict';
 
 const CONFIG = {
-  version: '0.0.2',
+  version: '0.0.1',
   date: '23 de octubre de 2026',
-  baseUrl: 'https://github.com/espakodi/ekLibreELEC/releases/download/v0.0.2',
+  baseUrl: 'https://github.com/espakodi/ekCoreELEC/releases/download/v0.0.1',
 };
 
 const PALETTES = [
+  { id: 'burgundy', name: 'Burdeos', color: '#8a3144' },
+  { id: 'terracotta', name: 'Terracota', color: '#a85534' },
   { id: 'teal', name: 'Teal', color: '#136b5e' },
   { id: 'indigo', name: 'Índigo', color: '#37548f' },
-  { id: 'burgundy', name: 'Burdeos', color: '#8a3144' },
   { id: 'forest', name: 'Bosque', color: '#356b3f' },
-  { id: 'terracotta', name: 'Terracota', color: '#a85534' },
   { id: 'noche', name: 'Noche', color: '#0288d1' },
 ];
 
@@ -19,259 +19,162 @@ const ICONS = {
   download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
   copy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>',
-  pc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-  vm: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>',
-  rpi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><circle cx="9" cy="15" r="1.5"/><circle cx="15" cy="15" r="1.5"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>',
+  tvbox: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
   chip: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="1" x2="9" y2="5"/><line x1="15" y1="1" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="23"/><line x1="15" y1="19" x2="15" y2="23"/><line x1="1" y1="9" x2="5" y2="9"/><line x1="1" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="23" y2="9"/><line x1="19" y1="15" x2="23" y2="15"/></svg>',
+  tar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
 };
 
 const DOWNLOADS = [
-  // PC
+  // TV Box Genéricos
   {
-    category: 'pc',
-    title: 'VirtualBox (Máquina Virtual)',
-    tag: 'Virtualización',
-    desc: 'Probarlo en VirtualBox sin tocar tu ordenador ni particionar nada.',
-    file: 'EspaKodi-PC-VirtualBox.ova',
-    sha256: 'cca7fda69bfe024d73ad71ac6f3956a7961f31501b8269d48ff14557aec99012',
-    icon: ICONS.vm,
-    ext: '.ova',
-    highlight: true,
-  },
-  {
-    category: 'pc',
-    title: 'PC Genérico x86_64',
-    tag: 'PC / Laptop',
-    desc: 'Instalarlo en cualquier PC o portátil convencional con procesador Intel o AMD.',
-    file: 'EspaKodi-Generic.x86_64-12.2-0.0.2-20261022.img.gz',
-    sha256: '9080ac5c6594977ab6ae4f75ff153e3d80e01d0480807bd6207164973718b87c',
-    icon: ICONS.pc,
-    ext: '.img.gz',
-    highlight: true,
-  },
-  // Raspberry Pi
-  {
-    category: 'rpi',
-    title: 'Raspberry Pi 4 y 400',
-    tag: 'ARM64',
-    desc: 'Optimizado para Raspberry Pi 4 Model B y el teclado Raspberry Pi 400.',
-    file: 'EspaKodi-RPi4.aarch64-12.2-0.0.2-20261017.img.gz',
-    sha256: '4f72a94e04cdc7490629884b797dd5cc178250e843a3f8d9106f50a6dd399d0d',
-    icon: ICONS.rpi,
+    category: 'tvbox',
+    title: 'TV Box Genérico (-ng)',
+    tag: 'TV BOX · -NG',
+    desc: 'Para la gran mayoría de TV boxes con chips S905X, S905D, S905W, S905X2, S905Y2, S922X, A311D, S905X3, S905D3 y S905X4. Requiere copiar el dtb.img a la raíz.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Generic.img.gz',
+    sha256: '4387a2b836a02d6d0e8c0fbebbfca62ed088d98651ff3423682528a493ba41db',
+    icon: ICONS.tvbox,
     ext: '.img.gz',
     highlight: true,
   },
   {
-    category: 'rpi',
-    title: 'Raspberry Pi 5',
-    tag: 'ARM64',
-    desc: 'Diseñado específicamente para la arquitectura y velocidad de Raspberry Pi 5.',
-    file: 'EspaKodi-RPi5.aarch64-12.2-0.0.2-20261021.img.gz',
-    sha256: '1bbad0f0353ce674188890e182c4c1fd7c3ed39ddef0d41f58fb25c0a315b7ee',
-    icon: ICONS.rpi,
+    category: 'tvbox',
+    title: 'TV Box Genérico (-ne)',
+    tag: 'TV BOX · -NE',
+    desc: 'Para TV boxes modernos con procesadores S905X4, S905W2, S905Y4, S928X y A311D2 (kernel Linux 5.4). Requiere copiar el dtb.img a la raíz.',
+    file: 'EspaKodi-Amlogic-ne.aarch64-21.3-Omega_devel_20260915194856-Generic.img.gz',
+    sha256: '451ca9c1861a8382d80df6e82dbb26cc382a6bc3e07e1a3164d3a85ef81a3f81',
+    icon: ICONS.tvbox,
     ext: '.img.gz',
     highlight: true,
   },
-  // Amlogic
+  // Placas Amlogic
   {
-    category: 'amlogic',
-    title: 'Banana Pi M2 Pro',
-    tag: 'AMLGX',
-    desc: 'Para la placa Banana Pi BPI-M2 Pro con SoC Amlogic S905X3.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-bananapi-m2-pro.img.gz',
-    sha256: '7edf74ec43ba6365aa76413f32aa7fab9f0c0a1e1f17f0def05f0d5ffe8f4aeb',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'Banana Pi M2S',
-    tag: 'AMLGX',
-    desc: 'Para la placa Banana Pi BPI-M2S con SoC A311D o S922X.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-bananapi-m2s.img.gz',
-    sha256: 'de83014e94a2cbd973fa592964fbb05c323e808ca35277df4d98f3a283f30baf',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'Banana Pi M5',
-    tag: 'AMLGX',
-    desc: 'Para la placa Banana Pi BPI-M5 con SoC Amlogic S905X3.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-bananapi-m5.img.gz',
-    sha256: 'b7296c886597bfb77d669fa2eec187f1e007742343964c1bdbc3d6a3642cf3af',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'FriendlyElec NanoPi K2',
-    tag: 'AMLGX',
-    desc: 'Para la placa NanoPi K2 de FriendlyElec con procesador S905.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-nanopi-k2.img.gz',
-    sha256: 'f101f966a2407ebc238793b19f2396ffdf3b2864ab2f1e9c95c39cb3f2542afa',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'Hardkernel Odroid C2',
-    tag: 'AMLGX',
-    desc: 'Para la placa Hardkernel Odroid C2 con SoC Amlogic S905.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-odroid-c2.img.gz',
-    sha256: '129f252f9fa67a30293a2e5de30b2346de52f1e0c9065233dcce6b944decad3d',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Hardkernel Odroid C4',
-    tag: 'AMLGX',
-    desc: 'Para la placa Hardkernel Odroid C4 con potente procesador S905X3.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-odroid-c4.img.gz',
-    sha256: 'e6883f3a686b287991ea39a6d37bf3297da5d81b82630d0c97fac5b6b31a875a',
+    tag: 'S905X3 · -NG',
+    desc: 'Para la placa Hardkernel Odroid C4 con procesador Amlogic S905X3. Lista para arrancar sin paso de dtb.img.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Odroid_C4.img.gz',
+    sha256: '31ece4f7ddbd67d6ba0ae8f8e548a6bfbb044c41bdcd208a8acdb9dd1302798d',
     icon: ICONS.chip,
     ext: '.img.gz',
+    highlight: true,
   },
   {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Hardkernel Odroid HC4',
-    tag: 'AMLGX',
-    desc: 'Para la placa y servidor NAS Odroid HC4 de Hardkernel.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-odroid-hc4.img.gz',
-    sha256: '56c3b3b53f0ea07e2a1bc2e0b9641fc14cf55fbb95ab8614148a128c5a543d5f',
+    tag: 'S905X3 · -NG',
+    desc: 'Para la placa y servidor de almacenamiento NAS Hardkernel Odroid HC4 con chip S905X3.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Odroid_HC4.img.gz',
+    sha256: 'd09019cf75bca5ce1bfbd114c7eb13dbcc122d489104935afa471578512d1d78',
     icon: ICONS.chip,
     ext: '.img.gz',
   },
   {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Hardkernel Odroid N2 / N2+',
-    tag: 'AMLGX',
-    desc: 'Para la placa de alto rendimiento Odroid N2 / N2+ con S922X.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-odroid-n2.img.gz',
-    sha256: '18fe991cb5035b1f8ac92307eeda904a47e3c22c0f57bf91375e2fa90a48d82f',
+    tag: 'S922X · -NG',
+    desc: 'Para la potente placa de desarrollo Hardkernel Odroid N2 y N2+ con procesador S922X.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Odroid_N2.img.gz',
+    sha256: '59cf51daf34ed0e2aedf9b9a29db4a88fe6c5ca00e43daa7a9e99a621033f15c',
+    icon: ICONS.chip,
+    ext: '.img.gz',
+    highlight: true,
+  },
+  {
+    category: 'placas',
+    title: 'Hardkernel Odroid N2L',
+    tag: 'S922X · -NG',
+    desc: 'Para la placa ligera Hardkernel Odroid N2L con SoC Amlogic S922X.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Odroid_N2L.img.gz',
+    sha256: '23ea2434ebbdba7eba226c2f5fa08ba6eb5623add75383201a38acaed95e7201',
     icon: ICONS.chip,
     ext: '.img.gz',
   },
   {
-    category: 'amlogic',
-    title: 'Khadas VIM',
-    tag: 'AMLGX',
-    desc: 'Para la placa Khadas VIM (primera generación) con SoC S905X.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-khadas-vim.img.gz',
-    sha256: '8bac1f9d3bd0d11035921d2855a4ccde410c4c6c0a77bc4aa97a6c658b189157',
+    category: 'placas',
+    title: 'Khadas VIM1S',
+    tag: 'S905Y4 · -NE',
+    desc: 'Para la placa Khadas VIM1S con procesador Amlogic S905Y4 (familia aarch64 -ne).',
+    file: 'EspaKodi-Amlogic-ne.aarch64-21.3-Omega_devel_20260915194856-Khadas_VIM1S.img.gz',
+    sha256: 'a652eb900d82a385fccf75d429e826f27bd9f2ee1e16c68723c3fca3ce80c891',
     icon: ICONS.chip,
     ext: '.img.gz',
+    highlight: true,
   },
   {
-    category: 'amlogic',
-    title: 'Khadas VIM2',
-    tag: 'AMLGX',
-    desc: 'Para la placa Khadas VIM2 con procesador Amlogic S912.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-khadas-vim2.img.gz',
-    sha256: '2d558b71712cad0755657ac8aec39d468c75ee9c6ad2b33460f895a0b3e2ad81',
+    category: 'placas',
+    title: 'Khadas VIM4',
+    tag: 'A311D2 · -NE',
+    desc: 'Para la placa de gama alta Khadas VIM4 con procesador octa-core Amlogic A311D2.',
+    file: 'EspaKodi-Amlogic-ne.aarch64-21.3-Omega_devel_20260915194856-Khadas_VIM4.img.gz',
+    sha256: 'bfe9d5ede97cc73ff100442d02149250523df4a376078444cb67a2bbe947500c',
     icon: ICONS.chip,
     ext: '.img.gz',
+    highlight: true,
   },
   {
-    category: 'amlogic',
-    title: 'Khadas VIM3',
-    tag: 'AMLGX',
-    desc: 'Para la placa Khadas VIM3 con SoC A311D.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-khadas-vim3.img.gz',
-    sha256: '9f79d4a2450b3177afe42a9bf26af93c8b074995439adabf158630746a5b993d',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'Khadas VIM3L',
-    tag: 'AMLGX',
-    desc: 'Para la versión HTPC Khadas VIM3L con SoC S905D3.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-khadas-vim3l.img.gz',
-    sha256: '6d40497e408f8166337f3949860879a0809c068292900615c0c2d3cc7b5b10fd',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'Libre Computer Alta',
-    tag: 'AML-A311D-CC',
-    desc: 'Para la placa Libre Computer AML-A311D-CC (Alta).',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-alta.img.gz',
-    sha256: '00e1ebf8e692d238fca7c7dc8d57b3e1fc69e6a4d8641ee6dab9fcc4ee85c6d5',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Libre Computer La Frite',
-    tag: 'AML-S805X-AC',
-    desc: 'Para la placa Libre Computer AML-S805X-AC (La Frite).',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-lafrite.img.gz',
-    sha256: '598ed38c0886d37209b7d558a70861a13f4bd59514f8435bfb00090bc44d603d',
+    tag: 'S805X · -NG',
+    desc: 'Para la placa Libre Computer AML-S805X-AC (La Frite). Arranca directamente.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-LaFrite.img.gz',
+    sha256: '751533d795663b100aa63d061b40dc77b96843a7d8bb77dd2ae04edb95532057',
     icon: ICONS.chip,
     ext: '.img.gz',
   },
   {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Libre Computer Le Potato',
-    tag: 'AML-S905X-CC',
-    desc: 'Para la placa Libre Computer AML-S905X-CC (Le Potato).',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-lepotato.img.gz',
-    sha256: 'd65e8e3222c58ced194641211ca9e9b315a220dfcfcea32061102e1c6fcbcc42',
+    tag: 'S905X · -NG',
+    desc: 'Para la placa Libre Computer AML-S905X-CC (Le Potato) con procesador S905X.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-LePotato.img.gz',
+    sha256: 'c728c3ce9a80da4301bb363f60e3f1bfe71e3f2de1b24281dece95ace6dd5c4e',
     icon: ICONS.chip,
     ext: '.img.gz',
+    highlight: true,
   },
   {
-    category: 'amlogic',
-    title: 'Libre Computer Solitude',
-    tag: 'AML-S905D3-CC',
-    desc: 'Para la placa Libre Computer AML-S905D3-CC (Solitude).',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-solitude.img.gz',
-    sha256: '6019f4ccd0e1af7259aa8cc82645b693a451b290465a3caa39149e7c0b372593',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Radxa Zero',
-    tag: 'AMLGX',
-    desc: 'Para la placa compacta Radxa Zero con SoC Amlogic S905Y2.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-radxa-zero.img.gz',
-    sha256: '1a2cfcfd2d25ef3566dad31952affd5b876ed88b6fe2b992236ca54fbb8c07fe',
+    tag: 'S905Y2 · -NG',
+    desc: 'Para la microplaca ultracompacta Radxa Zero con procesador Amlogic S905Y2.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Radxa_Zero.img.gz',
+    sha256: 'ef5fe0efed99d26f9bcacd78b344277749b02e9ffc3fa4e1da5c6e169a2ce0ea',
     icon: ICONS.chip,
     ext: '.img.gz',
   },
   {
-    category: 'amlogic',
+    category: 'placas',
     title: 'Radxa Zero 2',
-    tag: 'AMLGX',
-    desc: 'Para la placa ultrarrápida Radxa Zero 2 con SoC A311D.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-radxa-zero2.img.gz',
-    sha256: '48730a58d4e11539b710f5f51a26e74030fc9aaf5b481af9561379a353f1cd0d',
+    tag: 'A311D · -NG',
+    desc: 'Para la placa ultrarrápida Radxa Zero 2 con procesador hexa-core Amlogic A311D.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200-Radxa_Zero2.img.gz',
+    sha256: '45be7c3703c509b914679294e6437fcd367077aa46e281b70a95931fd3e38600',
     icon: ICONS.chip,
     ext: '.img.gz',
+    highlight: true,
+  },
+  // Actualizaciones .tar
+  {
+    category: 'tar',
+    title: 'Actualización manual (-ng)',
+    tag: 'UPDATE · -NG',
+    desc: 'Archivo .tar para actualizar dispositivos de la familia -ng ya instalados sin volver a grabar la tarjeta.',
+    file: 'EspaKodi-Amlogic-ng.arm-21.3-Omega_devel_20260915183200.tar',
+    sha256: '34aa10c3ed14fe4a2ba524c84eadf765a2f04abe9d57e4e9986db1cc91568b81',
+    icon: ICONS.tar,
+    ext: '.tar',
   },
   {
-    category: 'amlogic',
-    title: 'WeTek Core 2',
-    tag: 'AMLGX',
-    desc: 'Para el media center WeTek Core 2.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-wetek-core2.img.gz',
-    sha256: 'a84245256bd8d48b20f0b7e75f8cc2915b58077002f01a996fa24a8237a19f21',
-    icon: ICONS.chip,
-    ext: '.img.gz',
-  },
-  {
-    category: 'amlogic',
-    title: 'WeTek Play 2',
-    tag: 'AMLGX',
-    desc: 'Para el decodificador híbrido WeTek Play 2 con sintonizador.',
-    file: 'EspaKodi-AMLGX.aarch64-12.2-0.0.2-20261017-wetek-play2.img.gz',
-    sha256: '284dbc3d4582525caf1be74b55f99566db15cd7c7dc77633f38a6416f33b8e6e',
-    icon: ICONS.chip,
-    ext: '.img.gz',
+    category: 'tar',
+    title: 'Actualización manual (-ne)',
+    tag: 'UPDATE · -NE',
+    desc: 'Archivo .tar para actualizar dispositivos de la familia -ne ya instalados sin volver a grabar la tarjeta.',
+    file: 'EspaKodi-Amlogic-ne.aarch64-21.3-Omega_devel_20260915194856.tar',
+    sha256: '9a8e000677afc15699d002a153f58127e3ec4edc58ac515cfbc9164935334598',
+    icon: ICONS.tar,
+    ext: '.tar',
   },
 ];
 
@@ -297,6 +200,7 @@ function boot() {
   initA11y();
   initDownloads();
   initClipboardButtons();
+  initBackToTop();
 }
 
 if (document.readyState === 'loading') {
@@ -334,7 +238,7 @@ function applyTheme() {
 
 // --- Paletas ---
 function initPalette() {
-  const saved = lsGet('palette') || 'teal';
+  const saved = lsGet('palette') || 'burgundy';
   if (PALETTES.some((p) => p.id === saved)) applyPalette(saved);
 
   const pop = $('#palette-pop');
@@ -367,7 +271,7 @@ function applyPalette(id) {
 }
 
 function markPalette() {
-  const current = document.documentElement.getAttribute('data-palette') || 'teal';
+  const current = document.documentElement.getAttribute('data-palette') || 'burgundy';
   const pop = $('#palette-pop');
   if (!pop) return;
   pop.querySelectorAll('[data-palette]').forEach((btn) => {
@@ -463,14 +367,14 @@ function initDownloads() {
     grid.innerHTML = filtered.map((item) => {
       const downloadUrl = `${CONFIG.baseUrl}/${item.file}`;
       return `
-        <article class="dl-card ${item.highlight ? 'highlight-card' : ''}" data-cat="${item.category}">
+        <article class="dl-card" data-cat="${item.category}">
           <div>
             <div class="dl-card-head">
               <div class="dl-title-wrap">
                 <span class="dl-icon" aria-hidden="true">${item.icon}</span>
                 <h3 class="dl-title">${item.title}</h3>
               </div>
-              <span class="dl-tag-pill ${item.highlight ? 'accent-pill' : ''}">${item.tag}</span>
+              <span class="dl-tag-pill">${item.tag}</span>
             </div>
             <p class="dl-desc" style="margin-top: 10px;">${item.desc}</p>
           </div>
@@ -633,4 +537,24 @@ function escapeHtml(str) {
     '"': '&quot;',
     "'": '&#039;',
   }[m]));
+}
+
+// --- Botón volver arriba (ir al cielo) ---
+function initBackToTop() {
+  const btn = $('#btn-back-to-top');
+  if (!btn) return;
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 180) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  toggleVisibility();
 }

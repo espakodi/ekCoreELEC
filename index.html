@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="es" data-palette="teal">
+<html lang="es" data-palette="burgundy">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ekLibreELEC · EspaKodi para PC, Raspberry Pi y placas Amlogic</title>
-  <meta name="description" content="EspaKodi para PC, Raspberry Pi y TV box Amlogic. LibreELEC 12.2 con Kodi 21.3 Omega configurado en español con addons y favoritos listos desde el primer arranque.">
+  <title>ekCoreELEC · EspaKodi para TV box y placas Amlogic</title>
+  <meta name="description" content="EspaKodi para TV box y placas Amlogic. CoreELEC 21.3 con Kodi 21.3 Omega configurado en español con addons y favoritos listos desde el primer arranque.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header class="site-header">
+<body id="top">
+  <header class="site-header" id="header-top">
     <div class="wrap header-inner">
-      <a class="brand" href="#" aria-label="ekLibreELEC inicio">
+      <a class="brand" href="#" aria-label="ekCoreELEC inicio">
         <img class="brand-logo" src="favicon.svg" alt="" width="38" height="38">
         <span class="brand-text">
-          <strong>ek<em>LibreELEC</em></strong>
-          <small>EspaKodi para PC, Raspberry Pi y Amlogic</small>
+          <strong>ek<em>CoreELEC</em></strong>
+          <small>EspaKodi para TV box y Amlogic</small>
         </span>
       </a>
 
@@ -68,16 +70,17 @@
 
   <section class="hero">
     <div class="wrap hero-content">
-      <span class="eyebrow">LibreELEC 12.2 · Kodi 21.3 Omega</span>
-      <h1>ekLibreELEC · <span class="highlight">EspaKodi</span></h1>
+      <span class="eyebrow">CoreELEC 21.3 · Kodi 21.3 Omega</span>
+      <h1>ekCoreELEC · <span class="highlight">EspaKodi</span></h1>
       <p class="hero-sub">
-        EspaKodi para <strong>PC</strong>, <strong>Raspberry Pi</strong> y <strong>placas Amlogic</strong>. Por dentro es LibreELEC 12.2 con Kodi 21.3, ya configurado en español y con los addons y favoritos de EspaKodi listos desde el primer arranque. Se graba en un USB o en una tarjeta y Kodi arranca automáticamente al encender el aparato.
+        EspaKodi para <strong>TV box y placas Amlogic</strong>. Por dentro es CoreELEC 21.3 con Kodi 21.3, ya configurado en español y con los addons y favoritos de EspaKodi listos desde el primer arranque. Se graba en una tarjeta microSD y Kodi arranca automáticamente al encender el aparato. En un TV box <strong>no se borra Android</strong>: con la tarjeta puesta arranca EspaKodi, y si la quitas, vuelve a arrancar Android como siempre.
       </p>
 
       <div class="latest-badge">
-        <span class="tag">Versión v0.0.2</span>
+        <span class="tag">Versión v0.0.1</span>
         <span class="sep">·</span>
         <span class="date">23 de octubre de 2026</span>
+        <span class="sep">·</span>
         <span class="current-pill">Actual</span>
       </div>
 
@@ -115,8 +118,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
         <div class="highlight-text">
-          <strong>LibreELEC 12.2</strong>
-          <span>Sistema ultraligero que arranca al instante</span>
+          <strong>CoreELEC 21.3</strong>
+          <span>Optimizado al milímetro para chips Amlogic</span>
         </div>
       </div>
       <div class="highlight-pill">
@@ -124,8 +127,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
         <div class="highlight-text">
-          <strong>Plug & Play</strong>
-          <span>Grabar en USB/microSD, encender y listo</span>
+          <strong>Conserva Android</strong>
+          <span>Arranca de microSD sin tocar memoria interna</span>
         </div>
       </div>
       <div class="highlight-pill">
@@ -147,29 +150,57 @@
           Qué archivo descargar
         </h2>
         <p class="section-lead">
-          Cada imagen vale <strong>solo para el aparato que indica su nombre</strong>. La de una Raspberry Pi 4 no arranca en una Pi 5, y la de una placa no sirve para otra. El nombre de cada archivo lleva la versión de LibreELEC (12.2), la de EspaKodi (0.0.2) y la fecha en que se construyó la imagen.
+          Primero comprueba qué procesador Amlogic lleva tu aparato. El nombre de cada archivo indica si corresponde a la familia <strong>-ng</strong> o <strong>-ne</strong>, la versión de Kodi (21.3 Omega) y el dispositivo de destino.
         </p>
       </div>
 
+      <!-- Tabla de selección de chip -->
+      <div class="table-wrap" aria-label="Tabla de compatibilidad por procesador Amlogic">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th style="width: 120px;">Familia</th>
+              <th>Procesadores compatibles</th>
+              <th>Recomendación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag-ng">-ng</span></td>
+              <td>S905X, S905D, S905W, S905X2, S905Y2, S922X, A311D, S905X3, S905D3 y S905X4</td>
+              <td>Kernel Linux 4.9. Gran compatibilidad con modelos clásicos.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-ne">-ne</span></td>
+              <td>S905X4, S905W2, S905Y4, S928X y A311D2</td>
+              <td>Kernel Linux 5.4. Para cajas y placas de última generación.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: .88rem; color: var(--text-soft); text-align: center; margin-top: -6px; margin-bottom: 22px;">
+        <em>Nota: El chip S905X4 aparece en las dos listas. Prueba primero la imagen <strong>-ne</strong>; si no arranca, usa la <strong>-ng</strong>. Si tu chip no está en ninguna (por ejemplo S912 o S905 a secas), estas imágenes no te sirven.</em>
+      </p>
+
       <div class="downloads-filter-bar">
-        <div class="filter-tabs" role="tablist" aria-label="Filtrar por dispositivo">
+        <div class="filter-tabs" role="tablist" aria-label="Filtrar por categoría">
           <button class="tab-btn active" type="button" data-category="all">
-            Todos <span class="tab-badge">22</span>
+            Todos <span class="tab-badge">14</span>
           </button>
-          <button class="tab-btn" type="button" data-category="pc">
-            PC & VirtualBox <span class="tab-badge">2</span>
+          <button class="tab-btn" type="button" data-category="tvbox">
+            TV Box Genéricos <span class="tab-badge">2</span>
           </button>
-          <button class="tab-btn" type="button" data-category="rpi">
-            Raspberry Pi <span class="tab-badge">2</span>
+          <button class="tab-btn" type="button" data-category="placas">
+            Placas Amlogic <span class="tab-badge">10</span>
           </button>
-          <button class="tab-btn" type="button" data-category="amlogic">
-            TV Box y Amlogic <span class="tab-badge">18</span>
+          <button class="tab-btn" type="button" data-category="tar">
+            Actualizaciones .tar <span class="tab-badge">2</span>
           </button>
         </div>
 
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="search-input" class="search-input" type="search" placeholder="Buscar placa o modelo..." aria-label="Buscar placa o modelo">
+          <input id="search-input" class="search-input" type="search" placeholder="Buscar chip, placa o modelo..." aria-label="Buscar chip o placa">
         </div>
       </div>
 
@@ -180,9 +211,9 @@
       <div class="warning-box">
         <svg class="warning-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2.2"/><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></svg>
         <div class="warning-box-content">
-          <h4>Aviso sobre TV box genéricos Android</h4>
+          <h4>Aviso sobre imágenes Generic para TV Box</h4>
           <p>
-            Si tienes uno de esos TV box genéricos que se venden con Android y no aparece en la tabla, <strong>ninguna de estas imágenes te vale</strong>. Para esos casos existe una imagen comodín, pero no se publica porque hay que adaptarla a mano al chip de cada caja y casi siempre hay que arrancarla pulsando el botón de recuperación con un palillo.
+            Para un TV box se usa la imagen <strong>Generic</strong> del tipo correspondiente (-ng o -ne). Es la que necesita la mayoría de aparatos y requiere un paso adicional: copiar el archivo <strong>dtb.img</strong> correspondiente a tu chip y memoria RAM en la raíz de la tarjeta. Las imágenes para placas concretas (Odroid, Khadas, Radxa, Libre Computer) ya vienen preparadas y no necesitan ese paso.
           </p>
         </div>
       </div>
@@ -196,166 +227,175 @@
           Cómo se instala
         </h2>
         <p class="section-lead">
-          Guía paso a paso para probarlo en máquina virtual o instalarlo en tu PC, Raspberry Pi o placa TV box.
+          Guía paso a paso para grabar la tarjeta microSD, configurar el dtb.img en TV boxes y arrancar EspaKodi.
         </p>
       </div>
 
       <div class="howto-cards-grid">
-        <!-- Tarjeta VirtualBox -->
+        <!-- Paso 1: Grabar microSD -->
         <article class="howto-card">
           <div class="howto-card-head">
-            <div class="howto-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            <div class="howto-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-8L4 8v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+                <line x1="8" y1="8" x2="8" y2="12"/>
+                <line x1="11" y1="8" x2="11" y2="12"/>
+                <line x1="14" y1="8" x2="14" y2="12"/>
+                <line x1="17" y1="9" x2="17" y2="12"/>
+              </svg>
             </div>
             <div>
-              <h3 class="howto-card-title">En VirtualBox</h3>
-              <span class="howto-card-subtitle">Para probarlo en tu PC sin tocar tu disco</span>
+              <h3 class="howto-card-title">1. Grabar la tarjeta microSD</h3>
+              <span class="howto-card-subtitle">Tarjeta microSD de 8 GB o más</span>
             </div>
           </div>
-          <ol class="howto-steps">
-            <li class="howto-step">Descarga el archivo <strong>EspaKodi-PC-VirtualBox.ova</strong>.</li>
-            <li class="howto-step">Abre VirtualBox y pulsa en <strong>Archivo &gt; Importar servicio virtualizado</strong>.</li>
-            <li class="howto-step">Elige el archivo <code>.ova</code> descargado y haz clic en <strong>Importar</strong>.</li>
-            <li class="howto-step">Arranca la máquina. No hace falta configurar nada más: ya trae su disco de 8 GB y la tarjeta gráfica que necesita.</li>
-          </ol>
+          <div class="howto-body">
+            <p>Necesitas una tarjeta microSD de <strong>8 GB o más</strong> y uno de estos programas gratuitos para grabar el archivo <code>.img.gz</code> directamente sin descomprimir:</p>
+            <div class="tools-links-bar">
+              <a class="tool-chip-link" href="https://etcher.balena.io/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>balenaEtcher</span>
+              </a>
+              <a class="tool-chip-link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>Raspberry Pi Imager</span>
+              </a>
+            </div>
+            <p style="font-size: .83rem; color: var(--text-mute); margin-top: 10px;">
+              En Raspberry Pi Imager: selecciona <em>«Sistema operativo» > «Usar personalizada»</em> y elige el archivo descargado. <em>(Al grabar se borra el contenido previo de la tarjeta)</em>.
+            </p>
+          </div>
         </article>
 
-        <!-- Tarjeta Grabación USB / SD -->
+        <!-- Paso 2: dtb.img -->
         <article class="howto-card">
           <div class="howto-card-head">
-            <div class="howto-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <div class="howto-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="1" x2="9" y2="5"/><line x1="15" y1="1" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="23"/><line x1="15" y1="19" x2="15" y2="23"/><line x1="1" y1="9" x2="5" y2="9"/><line x1="1" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="23" y2="9"/><line x1="19" y1="15" x2="23" y2="15"/></svg>
             </div>
             <div>
-              <h3 class="howto-card-title">En PC, Raspberry Pi o Amlogic</h3>
-              <span class="howto-card-subtitle">Grabación en memoria USB o tarjeta microSD</span>
+              <h3 class="howto-card-title">2. El dtb.img (solo TV box Generic)</h3>
+              <span class="howto-card-subtitle">Las placas Amlogic no necesitan este paso</span>
             </div>
           </div>
-          <ol class="howto-steps">
-            <li class="howto-step">Para PC necesitas un <strong>USB de 2 GB o más</strong>. Para placas, una <strong>microSD de 8 GB o más</strong>.</li>
-            <li class="howto-step">Graba el archivo <code>.img.gz</code> directamente, <strong>sin descomprimirlo</strong>, con cualquiera de estas dos herramientas gratuitas:</li>
-          </ol>
-          <div class="tools-links-bar">
-            <a class="tool-chip-link" href="https://etcher.balena.io/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              <span>balenaEtcher</span>
-            </a>
-            <a class="tool-chip-link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              <span>Raspberry Pi Imager</span>
-            </a>
+          <div class="howto-body">
+            <p>Las placas no necesitan este paso. Para TV box:</p>
+            <ol class="howto-steps">
+              <li class="howto-step">Vuelve a meter la tarjeta en el PC tras grabarla. Aparecerá la unidad <strong>COREELEC</strong>.</li>
+              <li class="howto-step">Entra en la carpeta <code>device_trees</code> y busca el archivo de tu chip y RAM (ej. <code>sm1_s905x3_4g_1gbit.dtb</code> o <code>sc2_s905x4_2g.dtb</code>).</li>
+              <li class="howto-step">Cópialo a la raíz de la tarjeta (junto a <code>kernel.img</code>) y renómbralo exactamente a <strong>dtb.img</strong>.</li>
+            </ol>
           </div>
-          <p style="font-size: .83rem; color: var(--text-mute); margin-top: 10px;">
-            En Raspberry Pi Imager: en <em>«Sistema operativo»</em> baja hasta la última opción, <strong>«Usar personalizada»</strong>, y selecciona el archivo descargado. <em>(Al grabar se borra todo el contenido de la unidad)</em>.
-          </p>
         </article>
       </div>
 
-      <!-- Alerta Windows Formateo -->
       <div class="callout-alert">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke-width="2.2"/><circle cx="12" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <div class="callout-content">
-          <strong class="callout-title">Aviso si grabas desde Windows</strong>
+          <span class="callout-title">Aviso si grabas desde Windows</span>
           <p>
-            Cuando termine de grabar, puede que Windows diga que no puede leer la unidad y te ofrezca formatearla. <strong>Dile que no</strong>. Es completamente normal: la unidad queda con un sistema de archivos Linux que Windows no entiende de forma nativa.
+            Cuando termine de grabar, puede que Windows diga que no puede leer la unidad y te ofrezca formatearla. <strong>Dile que no</strong>. Es completamente normal: la tarjeta queda con un sistema de archivos Linux que Windows no entiende.
           </p>
         </div>
       </div>
 
-      <!-- Pasos de arranque según aparato -->
-      <div class="howto-card" style="margin-top: 16px;">
-        <h3 class="howto-card-title" style="margin-bottom: 14px;">Arranque del sistema según el aparato</h3>
-        <ul style="padding-left: 1.25em; color: var(--text-soft); font-size: .92rem; display: flex; flex-direction: column; gap: 8px;">
-          <li><strong>En un PC:</strong> Conecta el USB y arranca el ordenador desde él (pulsando F12, F11 o Esc según tu placa base). Aparece un menú que permite instalar EspaKodi en el disco duro. <em>Ten en cuenta que instalarlo borra lo que hubiera en ese disco</em>.</li>
-          <li><strong>En una Raspberry Pi:</strong> Introduce la tarjeta microSD grabada y enchufa el cable de alimentación.</li>
-          <li><strong>En una placa Amlogic:</strong> Introduce la tarjeta y enchúfala. Muchas placas tienen un interruptor o un botón para elegir que arranquen desde la tarjeta; si la tuya sigue encendiendo con su sistema Android habitual, consulta el manual de tu placa para activar el arranque desde SD.</li>
+      <!-- Paso 3: Arrancar -->
+      <div class="howto-card" style="margin-top: 18px;">
+        <div class="howto-card-head">
+          <div class="howto-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div>
+            <h3 class="howto-card-title">3. Cómo arrancar por primera vez</h3>
+            <span class="howto-card-subtitle">Instrucciones según el tipo de aparato</span>
+          </div>
+        </div>
+        <ul style="padding-left: 1.25em; color: var(--text-soft); font-size: .92rem; display: flex; flex-direction: column; gap: 10px; margin: 0;">
+          <li><strong>En un TV box (Generic):</strong> Con el aparato desenchufado, mete la tarjeta microSD. Mantén presionado con un palillo el botón oculto de recuperación (habitualmente en el fondo del conector AV o jack). Enchufa el cable de corriente y suelta el botón cuando aparezca el logotipo de EspaKodi. A partir de esa vez, arrancará EspaKodi siempre que la tarjeta esté puesta, y Android si la quitas.</li>
+          <li><strong>En una placa (Odroid, Khadas, Radxa, Libre Computer):</strong> Introduce la tarjeta y enchufa la alimentación. Si la placa cuenta con interruptor o selector de arranque (eMMC vs SD), consulta en su manual para activar el arranque desde tarjeta microSD.</li>
         </ul>
       </div>
-    </section>
 
-    <!-- Guía y Detalles Clave (Acordeón) -->
-    <section id="guia" class="section" aria-labelledby="guia-title">
-      <div class="section-header">
-        <h2 id="guia-title">
-          <svg style="width:24px;height:24px;color:var(--primary)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          Detalles de uso y configuración
-        </h2>
-        <p class="section-lead">
-          Información importante sobre el primer encendido, actualizaciones, seguridad y comprobación de integridad.
-        </p>
-      </div>
-
-      <div class="guide-accordion">
-        <!-- El primer arranque -->
-        <details class="guide-item" open>
-          <summary>
+      <!-- Acordeones de detalles técnicos y ayuda -->
+      <div class="guides-accordion-wrap" style="margin-top: 36px;">
+        <!-- Acordeón Primer arranque -->
+        <details class="guide-item">
+          <summary class="guide-summary">
             <span class="guide-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </span>
-            <span>El primer arranque</span>
+            <span>El primer arranque del sistema</span>
           </summary>
           <div class="guide-body">
             <p>
-              Tarda <strong>alrededor de un minuto</strong>, porque copia los addons y agranda automáticamente la partición de datos para aprovechar todo el espacio de tu USB o tarjeta. <strong>No lo apagues mientras tanto.</strong>
-            </p>
-            <p>
-              Primero sale la lista de Favoritos y, poco después, un asistente de bienvenida para poner la hora y conectarse a internet. Se pasa con <em>Siguiente</em> hasta el final y ya no vuelve a aparecer. A veces la primera vez se cierra solo, o no sale hasta el segundo arranque. No pasa nada; vuelve a salir y entonces se queda.
-            </p>
-            <p>
-              <strong>Privacidad y seguridad:</strong> El SSH y el servidor web de Kodi vienen <strong>apagados</strong>, de modo que nadie de tu red local puede entrar en el aparato sin tu consentimiento. Si necesitas el SSH, el asistente lo pregunta en la página de compartir, y también se puede activar más tarde desde <em>Configuración de EspaKodi</em>.
+              Tarda aproximadamente un minuto, ya que expande la partición de almacenamiento y copia los addons configurados. No lo desenchufes mientras tanto. Después aparecerá EspaKodi en español. Si se muestra el asistente de bienvenida para hora y WiFi, pulsa Siguiente hasta finalizar.
             </p>
           </div>
         </details>
 
-        <!-- Actualizaciones -->
+        <!-- Acordeón Memoria interna -->
         <details class="guide-item">
-          <summary>
+          <summary class="guide-summary">
             <span class="guide-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
             </span>
-            <span>Actualizaciones del sistema</span>
+            <span>Instalar en la memoria interna (eMMC)</span>
           </summary>
           <div class="guide-body">
             <p>
-              EspaKodi <strong>no busca versiones nuevas ni instala nada por su cuenta</strong>, así que no va a cambiar de un día para otro sin que tú hagas nada. Las versiones nuevas se publican en esta misma página web.
+              EspaKodi se puede volcar a la memoria interna de un TV box mediante la herramienta de terminal, pero <strong>eso borra Android por completo</strong> y no está probado en todos los modelos. Se recomienda utilizarlo siempre desde la tarjeta microSD, donde funciona exactamente con el mismo rendimiento y permite conservar Android intacto.
             </p>
-            <div class="callout-alert" style="margin-block: 10px;">
-              <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2.2"/><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></svg>
-              <div class="callout-content">
-                <strong class="callout-title">No actualices con imágenes de LibreELEC oficial</strong>
-                <p>
-                  No le grabes encima una actualización de LibreELEC descargada de su web. El sistema la acepta, porque solo comprueba que sea para el mismo tipo de aparato, pero <strong>borra todo lo de EspaKodi</strong> y te deja un LibreELEC estándar en inglés. Tus addons, favoritos y ajustes se conservan; lo propio de EspaKodi se pierde.
-                </p>
-              </div>
-            </div>
           </div>
         </details>
 
-        <!-- El registro de errores -->
+        <!-- Acordeón Seguridad y SSH -->
         <details class="guide-item">
-          <summary>
+          <summary class="guide-summary">
             <span class="guide-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </span>
-            <span>El registro de errores (logs)</span>
+            <span>Seguridad, SSH y contraseñas de acceso</span>
           </summary>
           <div class="guide-body">
             <p>
-              Si usas <strong>Configuración de EspaKodi &gt; Sistema &gt; Enviar registro</strong>, el archivo se guarda en la carpeta compartida <code>Downloads</code> del propio aparato y <strong>no se manda a ningún sitio externo</strong>.
+              Por motivos de privacidad y seguridad, tanto el servicio SSH como el servidor web de Kodi vienen <strong>apagados de inicio</strong>.
             </p>
             <p>
-              Desde esa carpeta lo puedes copiar cómodamente por la red local a tu móvil u ordenador y pasárselo a quien te esté ayudando a resolver dudas o incidencias.
+              Si necesitas activarlos, ve a <em>Ajustes > EspaKodi > Servicios</em>. Si activas SSH, el usuario es <code>root</code> y la contraseña temporal de fábrica es <code>espakodi</code>. Cámbiala en tu primer acceso mediante la orden <code>passwd</code> en la consola.
             </p>
           </div>
         </details>
 
-        <!-- Comprobar descarga SHA256 -->
+        <!-- Acordeón Actualizaciones .tar -->
+        <details class="guide-item">
+          <summary class="guide-summary">
+            <span class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </span>
+            <span>Cómo actualizar con los archivos .tar</span>
+          </summary>
+          <div class="guide-body">
+            <p>
+              EspaKodi no instala versiones por su cuenta para proteger tus modificaciones. Para pasar a una versión nueva sin volver a grabar la tarjeta:
+            </p>
+            <ol class="steps-list">
+              <li>Descarga el archivo <code>.tar</code> de tu misma familia (<strong>-ng</strong> o <strong>-ne</strong>).</li>
+              <li>Copia el archivo en la carpeta <strong>Update</strong> del aparato y reinícialo.</li>
+              <li>Desde un ordenador con Windows, puedes acceder por red escribiendo <code>\\IP-del-aparato\Update</code> en el explorador de archivos (con Samba activado en <em>Ajustes > EspaKodi > Servicios</em>).</li>
+            </ol>
+            <p style="font-size: .88rem; color: var(--text-soft); margin-top: 8px;">
+              Tus ajustes, listas y addons se conservan intactos. No instales actualizaciones del CoreELEC oficial sobre EspaKodi, ya que borrarían la personalización.
+            </p>
+          </div>
+        </details>
+
+        <!-- Acordeón Verificación SHA-256 -->
         <details id="verificacion" class="guide-item">
-          <summary>
+          <summary class="guide-summary">
             <span class="guide-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </span>
-            <span>Comprobar que la descarga está entera (SHA256)</span>
+            <span>Comprobar que la descarga está entera (SHA-256)</span>
           </summary>
           <div class="guide-body">
             <p>
@@ -375,7 +415,7 @@
             </div>
             <p style="font-size: .88rem; margin-top: -6px;">El número que sale en pantalla tiene que coincidir exactamente con el valor SHA-256 que figura en la tarjeta del archivo.</p>
 
-            <p style="margin-top: 14px;"><strong>En Linux (terminal, en la misma carpeta):</strong></p>
+            <p style="margin-top: 14px;"><strong>En Linux / macOS (terminal, en la misma carpeta):</strong></p>
             <div class="code-block">
               <div class="code-block-head">
                 <span>Bash / Linux</span>
@@ -396,16 +436,34 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <ul class="footer-links">
-        <li><a href="https://espakodi.github.io/apk/" target="_blank" rel="noopener">EspaKodi APK</a></li>
-        <li><a href="https://espatv.github.io/" target="_blank" rel="noopener">EspaTV</a></li>
+        <li>
+          <a href="https://espakodi.github.io/apk/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <span>EspaKodi APK</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://espatv.github.io/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            <span>EspaTV</span>
+          </a>
+        </li>
       </ul>
       <p class="footer-disclaimer">
-        <strong>Aviso legal:</strong> EspaKodi es un proyecto independiente montado sobre LibreELEC con Kodi, el reproductor de la Fundación XBMC. No está desarrollado, afiliado ni vinculado a la Fundación XBMC, ni al equipo de Kodi ni al de LibreELEC. Kodi y LibreELEC son software libre bajo licencia GPL, y sus licencias van incluidas dentro de cada imagen.
+        <strong>Aviso legal:</strong> EspaKodi es un proyecto independiente montado sobre CoreELEC con Kodi, el reproductor de la Fundación XBMC. No está desarrollado, afiliado ni vinculado a la Fundación XBMC, ni al equipo de Kodi ni al de CoreELEC. Kodi y CoreELEC son software libre bajo licencia GPL, y sus licencias van incluidas dentro de cada imagen.
       </p>
     </div>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Botón volver arriba (ir al cielo) -->
+  <button id="btn-back-to-top" class="btn-back-to-top" type="button" aria-label="Ir al cielo" title="Ir al cielo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"/>
+      <polyline points="5 12 12 5 19 12"/>
+    </svg>
+  </button>
 
   <script src="app.js"></script>
 </body>
