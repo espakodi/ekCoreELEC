@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es" data-palette="teal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ekLibreELEC · EspaKodi para PC, Raspberry Pi y placas Amlogic</title>
+  <meta name="description" content="EspaKodi para PC, Raspberry Pi y TV box Amlogic. LibreELEC 12.2 con Kodi 21.3 Omega configurado en español con addons y favoritos listos desde el primer arranque.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#" aria-label="ekLibreELEC inicio">
+        <img class="brand-logo" src="favicon.svg" alt="" width="38" height="38">
+        <span class="brand-text">
+          <strong>ek<em>LibreELEC</em></strong>
+          <small>EspaKodi para PC, Raspberry Pi y Amlogic</small>
+        </span>
+      </a>
+
+      <div class="header-tools">
+        <div class="tool-wrap">
+          <button id="palette-btn" class="icon-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="palette-pop" aria-label="Cambiar paleta de color" title="Paleta de color">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"/>
+              <circle cx="12" cy="7" r="1.1" fill="currentColor"/>
+              <circle cx="16.5" cy="10" r="1.1" fill="currentColor"/>
+              <circle cx="15" cy="15.5" r="1.1" fill="currentColor"/>
+              <circle cx="8" cy="14" r="1.1" fill="currentColor"/>
+            </svg>
+          </button>
+          <div id="palette-pop" class="popover" role="menu" hidden></div>
+        </div>
+
+        <button id="theme-btn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Tema claro u oscuro">
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+
+        <div class="tool-wrap">
+          <button id="a11y-btn" class="icon-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="a11y-panel" aria-label="Opciones de accesibilidad" title="Accesibilidad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"/>
+              <circle cx="12" cy="7" r="1.2" fill="currentColor"/>
+              <path d="M6.5 9.5h11M12 9.7V14M12 14l-2.4 4M12 14l2.4 4"/>
+            </svg>
+          </button>
+          <div id="a11y-panel" class="popover popover-wide" role="menu" hidden>
+            <p class="popover-title">Accesibilidad</p>
+            <button class="chip-toggle" type="button" data-a11y="a11y-contrast" aria-pressed="false">Alto contraste</button>
+            <button class="chip-toggle" type="button" data-a11y="a11y-bold" aria-pressed="false">Negrita</button>
+            <button class="chip-toggle" type="button" data-a11y="a11y-large" aria-pressed="false">Texto más grande</button>
+            <button class="chip-toggle" type="button" data-a11y="a11y-upper" aria-pressed="false">Mayúsculas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-content">
+      <span class="eyebrow">LibreELEC 12.2 · Kodi 21.3 Omega</span>
+      <h1>ekLibreELEC · <span class="highlight">EspaKodi</span></h1>
+      <p class="hero-sub">
+        EspaKodi para <strong>PC</strong>, <strong>Raspberry Pi</strong> y <strong>placas Amlogic</strong>. Por dentro es LibreELEC 12.2 con Kodi 21.3, ya configurado en español y con los addons y favoritos de EspaKodi listos desde el primer arranque. Se graba en un USB o en una tarjeta y Kodi arranca automáticamente al encender el aparato.
+      </p>
+
+      <div class="latest-badge">
+        <span class="tag">Versión v0.0.2</span>
+        <span class="sep">·</span>
+        <span class="date">23 de octubre de 2026</span>
+        <span class="current-pill">Actual</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="hero-btn hero-btn-primary" href="#descargas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar imágenes</span>
+        </a>
+        <a class="hero-btn hero-btn-secondary" href="#instalacion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>Cómo se instala</span>
+        </a>
+        <a class="hero-btn hero-btn-secondary" href="#verificacion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Verificación SHA-256</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <!-- Barra de ventajas destacadas -->
+    <div class="highlights-bar" aria-label="Características destacadas">
+      <div class="highlight-pill">
+        <div class="highlight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="highlight-text">
+          <strong>Todo en español</strong>
+          <span>Kodi, addons y canales listos para ver</span>
+        </div>
+      </div>
+      <div class="highlight-pill">
+        <div class="highlight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="highlight-text">
+          <strong>LibreELEC 12.2</strong>
+          <span>Sistema ultraligero que arranca al instante</span>
+        </div>
+      </div>
+      <div class="highlight-pill">
+        <div class="highlight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="highlight-text">
+          <strong>Plug & Play</strong>
+          <span>Grabar en USB/microSD, encender y listo</span>
+        </div>
+      </div>
+      <div class="highlight-pill">
+        <div class="highlight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="highlight-text">
+          <strong>Máxima privacidad</strong>
+          <span>SSH y servidor web apagados de inicio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Descargas -->
+    <section id="descargas" class="section" aria-labelledby="descargas-title">
+      <div class="section-header">
+        <h2 id="descargas-title">
+          <svg style="width:24px;height:24px;color:var(--primary)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Qué archivo descargar
+        </h2>
+        <p class="section-lead">
+          Cada imagen vale <strong>solo para el aparato que indica su nombre</strong>. La de una Raspberry Pi 4 no arranca en una Pi 5, y la de una placa no sirve para otra. El nombre de cada archivo lleva la versión de LibreELEC (12.2), la de EspaKodi (0.0.2) y la fecha en que se construyó la imagen.
+        </p>
+      </div>
+
+      <div class="downloads-filter-bar">
+        <div class="filter-tabs" role="tablist" aria-label="Filtrar por dispositivo">
+          <button class="tab-btn active" type="button" data-category="all">
+            Todos <span class="tab-badge">22</span>
+          </button>
+          <button class="tab-btn" type="button" data-category="pc">
+            PC & VirtualBox <span class="tab-badge">2</span>
+          </button>
+          <button class="tab-btn" type="button" data-category="rpi">
+            Raspberry Pi <span class="tab-badge">2</span>
+          </button>
+          <button class="tab-btn" type="button" data-category="amlogic">
+            TV Box y Amlogic <span class="tab-badge">18</span>
+          </button>
+        </div>
+
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="search-input" class="search-input" type="search" placeholder="Buscar placa o modelo..." aria-label="Buscar placa o modelo">
+        </div>
+      </div>
+
+      <div id="downloads-grid" class="cards-grid" aria-live="polite">
+        <!-- Renderizado dinámicamente por app.js -->
+      </div>
+
+      <div class="warning-box">
+        <svg class="warning-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2.2"/><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <div class="warning-box-content">
+          <h4>Aviso sobre TV box genéricos Android</h4>
+          <p>
+            Si tienes uno de esos TV box genéricos que se venden con Android y no aparece en la tabla, <strong>ninguna de estas imágenes te vale</strong>. Para esos casos existe una imagen comodín, pero no se publica porque hay que adaptarla a mano al chip de cada caja y casi siempre hay que arrancarla pulsando el botón de recuperación con un palillo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Cómo se instala -->
+    <section id="instalacion" class="section" aria-labelledby="instalacion-title">
+      <div class="section-header">
+        <h2 id="instalacion-title">
+          <svg style="width:24px;height:24px;color:var(--primary)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Cómo se instala
+        </h2>
+        <p class="section-lead">
+          Guía paso a paso para probarlo en máquina virtual o instalarlo en tu PC, Raspberry Pi o placa TV box.
+        </p>
+      </div>
+
+      <div class="howto-cards-grid">
+        <!-- Tarjeta VirtualBox -->
+        <article class="howto-card">
+          <div class="howto-card-head">
+            <div class="howto-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <div>
+              <h3 class="howto-card-title">En VirtualBox</h3>
+              <span class="howto-card-subtitle">Para probarlo en tu PC sin tocar tu disco</span>
+            </div>
+          </div>
+          <ol class="howto-steps">
+            <li class="howto-step">Descarga el archivo <strong>EspaKodi-PC-VirtualBox.ova</strong>.</li>
+            <li class="howto-step">Abre VirtualBox y pulsa en <strong>Archivo &gt; Importar servicio virtualizado</strong>.</li>
+            <li class="howto-step">Elige el archivo <code>.ova</code> descargado y haz clic en <strong>Importar</strong>.</li>
+            <li class="howto-step">Arranca la máquina. No hace falta configurar nada más: ya trae su disco de 8 GB y la tarjeta gráfica que necesita.</li>
+          </ol>
+        </article>
+
+        <!-- Tarjeta Grabación USB / SD -->
+        <article class="howto-card">
+          <div class="howto-card-head">
+            <div class="howto-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+              <h3 class="howto-card-title">En PC, Raspberry Pi o Amlogic</h3>
+              <span class="howto-card-subtitle">Grabación en memoria USB o tarjeta microSD</span>
+            </div>
+          </div>
+          <ol class="howto-steps">
+            <li class="howto-step">Para PC necesitas un <strong>USB de 2 GB o más</strong>. Para placas, una <strong>microSD de 8 GB o más</strong>.</li>
+            <li class="howto-step">Graba el archivo <code>.img.gz</code> directamente, <strong>sin descomprimirlo</strong>, con cualquiera de estas dos herramientas gratuitas:</li>
+          </ol>
+          <div class="tools-links-bar">
+            <a class="tool-chip-link" href="https://etcher.balena.io/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>balenaEtcher</span>
+            </a>
+            <a class="tool-chip-link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>Raspberry Pi Imager</span>
+            </a>
+          </div>
+          <p style="font-size: .83rem; color: var(--text-mute); margin-top: 10px;">
+            En Raspberry Pi Imager: en <em>«Sistema operativo»</em> baja hasta la última opción, <strong>«Usar personalizada»</strong>, y selecciona el archivo descargado. <em>(Al grabar se borra todo el contenido de la unidad)</em>.
+          </p>
+        </article>
+      </div>
+
+      <!-- Alerta Windows Formateo -->
+      <div class="callout-alert">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke-width="2.2"/><circle cx="12" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <div class="callout-content">
+          <strong class="callout-title">Aviso si grabas desde Windows</strong>
+          <p>
+            Cuando termine de grabar, puede que Windows diga que no puede leer la unidad y te ofrezca formatearla. <strong>Dile que no</strong>. Es completamente normal: la unidad queda con un sistema de archivos Linux que Windows no entiende de forma nativa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pasos de arranque según aparato -->
+      <div class="howto-card" style="margin-top: 16px;">
+        <h3 class="howto-card-title" style="margin-bottom: 14px;">Arranque del sistema según el aparato</h3>
+        <ul style="padding-left: 1.25em; color: var(--text-soft); font-size: .92rem; display: flex; flex-direction: column; gap: 8px;">
+          <li><strong>En un PC:</strong> Conecta el USB y arranca el ordenador desde él (pulsando F12, F11 o Esc según tu placa base). Aparece un menú que permite instalar EspaKodi en el disco duro. <em>Ten en cuenta que instalarlo borra lo que hubiera en ese disco</em>.</li>
+          <li><strong>En una Raspberry Pi:</strong> Introduce la tarjeta microSD grabada y enchufa el cable de alimentación.</li>
+          <li><strong>En una placa Amlogic:</strong> Introduce la tarjeta y enchúfala. Muchas placas tienen un interruptor o un botón para elegir que arranquen desde la tarjeta; si la tuya sigue encendiendo con su sistema Android habitual, consulta el manual de tu placa para activar el arranque desde SD.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Guía y Detalles Clave (Acordeón) -->
+    <section id="guia" class="section" aria-labelledby="guia-title">
+      <div class="section-header">
+        <h2 id="guia-title">
+          <svg style="width:24px;height:24px;color:var(--primary)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Detalles de uso y configuración
+        </h2>
+        <p class="section-lead">
+          Información importante sobre el primer encendido, actualizaciones, seguridad y comprobación de integridad.
+        </p>
+      </div>
+
+      <div class="guide-accordion">
+        <!-- El primer arranque -->
+        <details class="guide-item" open>
+          <summary>
+            <span class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <span>El primer arranque</span>
+          </summary>
+          <div class="guide-body">
+            <p>
+              Tarda <strong>alrededor de un minuto</strong>, porque copia los addons y agranda automáticamente la partición de datos para aprovechar todo el espacio de tu USB o tarjeta. <strong>No lo apagues mientras tanto.</strong>
+            </p>
+            <p>
+              Primero sale la lista de Favoritos y, poco después, un asistente de bienvenida para poner la hora y conectarse a internet. Se pasa con <em>Siguiente</em> hasta el final y ya no vuelve a aparecer. A veces la primera vez se cierra solo, o no sale hasta el segundo arranque. No pasa nada; vuelve a salir y entonces se queda.
+            </p>
+            <p>
+              <strong>Privacidad y seguridad:</strong> El SSH y el servidor web de Kodi vienen <strong>apagados</strong>, de modo que nadie de tu red local puede entrar en el aparato sin tu consentimiento. Si necesitas el SSH, el asistente lo pregunta en la página de compartir, y también se puede activar más tarde desde <em>Configuración de EspaKodi</em>.
+            </p>
+          </div>
+        </details>
+
+        <!-- Actualizaciones -->
+        <details class="guide-item">
+          <summary>
+            <span class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </span>
+            <span>Actualizaciones del sistema</span>
+          </summary>
+          <div class="guide-body">
+            <p>
+              EspaKodi <strong>no busca versiones nuevas ni instala nada por su cuenta</strong>, así que no va a cambiar de un día para otro sin que tú hagas nada. Las versiones nuevas se publican en esta misma página web.
+            </p>
+            <div class="callout-alert" style="margin-block: 10px;">
+              <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2.2"/><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></svg>
+              <div class="callout-content">
+                <strong class="callout-title">No actualices con imágenes de LibreELEC oficial</strong>
+                <p>
+                  No le grabes encima una actualización de LibreELEC descargada de su web. El sistema la acepta, porque solo comprueba que sea para el mismo tipo de aparato, pero <strong>borra todo lo de EspaKodi</strong> y te deja un LibreELEC estándar en inglés. Tus addons, favoritos y ajustes se conservan; lo propio de EspaKodi se pierde.
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- El registro de errores -->
+        <details class="guide-item">
+          <summary>
+            <span class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </span>
+            <span>El registro de errores (logs)</span>
+          </summary>
+          <div class="guide-body">
+            <p>
+              Si usas <strong>Configuración de EspaKodi &gt; Sistema &gt; Enviar registro</strong>, el archivo se guarda en la carpeta compartida <code>Downloads</code> del propio aparato y <strong>no se manda a ningún sitio externo</strong>.
+            </p>
+            <p>
+              Desde esa carpeta lo puedes copiar cómodamente por la red local a tu móvil u ordenador y pasárselo a quien te esté ayudando a resolver dudas o incidencias.
+            </p>
+          </div>
+        </details>
+
+        <!-- Comprobar descarga SHA256 -->
+        <details id="verificacion" class="guide-item">
+          <summary>
+            <span class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span>Comprobar que la descarga está entera (SHA256)</span>
+          </summary>
+          <div class="guide-body">
+            <p>
+              Cada imagen cuenta en su tarjeta de descarga con su huella digital SHA-256 correspondiente para confirmar que el archivo no se ha cortado ni dañado durante la descarga.
+            </p>
+
+            <p><strong>En Windows (PowerShell):</strong></p>
+            <div class="code-block">
+              <div class="code-block-head">
+                <span>PowerShell</span>
+                <button class="btn-copy-code" type="button" data-target-code="cmd-ps">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copiar</span>
+                </button>
+              </div>
+              <pre><code id="cmd-ps">Get-FileHash -Algorithm SHA256 &lt;archivo&gt;</code></pre>
+            </div>
+            <p style="font-size: .88rem; margin-top: -6px;">El número que sale en pantalla tiene que coincidir exactamente con el valor SHA-256 que figura en la tarjeta del archivo.</p>
+
+            <p style="margin-top: 14px;"><strong>En Linux (terminal, en la misma carpeta):</strong></p>
+            <div class="code-block">
+              <div class="code-block-head">
+                <span>Bash / Linux</span>
+                <button class="btn-copy-code" type="button" data-target-code="cmd-linux">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copiar</span>
+                </button>
+              </div>
+              <pre><code id="cmd-linux">sha256sum &lt;archivo&gt;</code></pre>
+            </div>
+            <p style="font-size: .88rem; margin-top: -6px;">Si el hash calculado coincide con el de la web, la descarga es 100% íntegra.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <ul class="footer-links">
+        <li><a href="https://espakodi.github.io/apk/" target="_blank" rel="noopener">EspaKodi APK</a></li>
+        <li><a href="https://espatv.github.io/" target="_blank" rel="noopener">EspaTV</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        <strong>Aviso legal:</strong> EspaKodi es un proyecto independiente montado sobre LibreELEC con Kodi, el reproductor de la Fundación XBMC. No está desarrollado, afiliado ni vinculado a la Fundación XBMC, ni al equipo de Kodi ni al de LibreELEC. Kodi y LibreELEC son software libre bajo licencia GPL, y sus licencias van incluidas dentro de cada imagen.
+      </p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
